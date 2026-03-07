@@ -73,8 +73,8 @@ export default function ProductModal({ product, isOpen, onClose, onAddToCart }: 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"  onClick={onClose}>
+      <div className="bg-white rounded-xl shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto flex flex-col" style={{backgroundColor: "#F6EFE3"}} onClick={(e) => e.stopPropagation()}>
         <div className="relative h-48 bg-gray-200 shrink-0">
              {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover" />
@@ -86,13 +86,13 @@ export default function ProductModal({ product, isOpen, onClose, onAddToCart }: 
         <div className="p-6 flex-1">
           <h2 className="text-2xl font-bold">{product.name}</h2>
           <p className="text-gray-600 mt-2">{product.description}</p>
-          <p className="text-lg font-semibold mt-2">{formatCurrency(product.basePriceCents)}</p>
+          <p style={{backgroundColor: "#FABF0D", color: "#AF1D1D", width: "100px", textAlign: "center"}} className="text-lg font-semibold bg-gray-100 px-2 py-1 rounded mt-2">{formatCurrency(product.basePriceCents)}</p>
 
           <div className="mt-6 space-y-6">
             {product.modifierGroups.map(group => (
               <div key={group.id}>
                 <h3 className="font-semibold text-gray-900">
-                  {group.name} 
+                  {group.name}
                   <span className="text-sm font-normal text-gray-500 ml-2">
                     ({group.minSelection === 1 && group.maxSelection === 1 ? 'Required' : `Choose up to ${group.maxSelection}`})
                   </span>
@@ -101,7 +101,7 @@ export default function ProductModal({ product, isOpen, onClose, onAddToCart }: 
                   {group.options.map(option => {
                     const isSelected = (selectedModifiers[group.id] || []).includes(option.id);
                     return (
-                      <label key={option.id} className="flex items-center justify-between p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                      <label key={option.id} className="flex items-center justify-between p-3 border rounded-lg cursor-pointer" style={{border: "2px solid #AF1D1D"}}>
                         <div className="flex items-center">
                           <input
                             type={group.maxSelection === 1 ? 'radio' : 'checkbox'}
@@ -124,19 +124,19 @@ export default function ProductModal({ product, isOpen, onClose, onAddToCart }: 
           </div>
         </div>
 
-        <div className="p-6 border-t bg-gray-50 shrink-0">
+        <div className="p-6 bg-gray-50 shrink-0" style={{backgroundColor: "#F6EFE3"}}>
           <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center border rounded-lg bg-white">
-              <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-3 py-1 hover:bg-gray-100">-</button>
+            <div className="flex items-center rounded-lg bg-white" style={{border: "1px solid #AF1D1D", backgroundColor: "#F6EFE3"}}>
+              <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-3 py-1" style={{cursor: "pointer"}}>-</button>
               <span className="px-3 font-medium">{quantity}</span>
-              <button onClick={() => setQuantity(quantity + 1)} className="px-3 py-1 hover:bg-gray-100">+</button>
+              <button onClick={() => setQuantity(quantity + 1)} className="px-3 py-1" style={{cursor: "pointer"}}>+</button>
             </div>
-            <div className="text-xl font-bold">{formatCurrency(calculateTotal())}</div>
+            <div style={{backgroundColor: "#FABF0D", color: "#AF1D1D", width: "100px", textAlign: "center", padding: "3px"}} className="text-xl font-bold rounded">{formatCurrency(calculateTotal())}</div>
           </div>
           <button
             onClick={handleSubmit}
             disabled={!isValid()}
-            className="w-full bg-black text-white py-3 rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-800 transition-colors"
+            className="w-full text-white py-3 rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-800 transition-colors add-to-cart-button"
           >
             Add to Cart
           </button>

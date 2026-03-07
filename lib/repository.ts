@@ -61,8 +61,7 @@ class InMemoryDB {
       { id: 'prod_3', name: 'Veggie Bowl', description: 'Healthy greens and grains.', basePriceCents: 1000, imageUrl: 'https://data.thefeedfeed.com/static/2019/10/16/15712654875da79bcfdad05.jpg', modifierGroups: createModifiers(false) },
       { id: 'prod_4', name: 'Spicy Tacos', description: 'Three soft tacos with salsa.', basePriceCents: 1300, imageUrl: 'https://familiakitchen.com/wp-content/uploads/2021/01/iStock-960337396-3beef-barbacoa-tacos-e1695391119564.jpg', modifierGroups: createModifiers(true) },
       { id: 'prod_5', name: 'Fries', description: 'Golden crispy fries.', basePriceCents: 400, imageUrl: 'https://www.allrecipes.com/thmb/8_B6OD1w6h1V0zPi8KAGzD41Kzs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/50223-homemade-crispy-seasoned-french-fries-VAT-Beauty-4x3-789ecb2eaed34d6e879b9a93dd56a50a.jpg', modifierGroups: [] },
-      { id: 'prod_6', name: 'Soda', description: 'Refreshing carbonated beverage.', basePriceCents: 250, imageUrl: 'https://locatelvenezuela.vtexassets.com/arquivos/ids/167317-800-auto?v=637825247766670000&width=800&height=auto&aspect=true', modifierGroups: [] },
-      { id: 'prod_7', name: 'Ice Cream', description: 'Vanilla soft serve.', basePriceCents: 500, imageUrl: 'https://static01.nyt.com/images/2025/08/12/multimedia/12FD-ICE-CREAMREX1-SL-Easy-Homemade-Ice-Cream-bzhv/12FD-ICE-CREAMREX1-SL-Easy-Homemade-Ice-Cream-bzhv-mediumSquareAt3X.jpg', modifierGroups: [] },
+      { id: 'prod_6', name: 'Soda', description: 'Refreshing carbonated beverage.', basePriceCents: 250, imageUrl: 'https://www.shutterstock.com/image-photo/full-size-cocacola-plastic-bottle-600nw-2642734713.jpg', modifierGroups: [] },
     ];
   }
 }

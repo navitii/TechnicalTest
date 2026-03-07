@@ -45,7 +45,7 @@ export default function MenuPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
+    <div className="min-h-screen bg-gray-50 pb-20" style={{backgroundColor: "#F6EFE3"}}>
       <header className="bg-white sticky top-0 z-10 restaurant-header">
         <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
           <div style={{display: "flex", alignItems: "center", gap: "10px"}}>
@@ -80,12 +80,12 @@ export default function MenuPage() {
         <img src="https://png.pngtree.com/png-vector/20240829/ourmid/pngtree-delicious-and-testy-cheese-burger-png-image_13659847.png" alt="Promotion"  />
       </div>
 
-      <main ref={menuRef} className="max-w-5xl mx-auto px-4 py-8">
+      <main ref={menuRef} className="max-w-5xl mx-auto px-4 py-8 menu-container">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map(product => (
             <div 
               key={product.id} 
-              className="bg-white rounded-xl shadow-sm border overflow-hidden hover:shadow-md transition-shadow cursor-pointer group"
+              className="product-card"
               onClick={() => setSelectedProduct(product)}
             >
               <div className="h-48 overflow-hidden">
@@ -93,13 +93,14 @@ export default function MenuPage() {
                 <img 
                   src={product.imageUrl} 
                   alt={product.name} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 product-image"
+                  style={{ borderRadius: "15px 15px 0 0" }}
                 />
               </div>
               <div className="p-4">
                 <div className="flex justify-between items-start">
                   <h3 className="font-bold text-lg">{product.name}</h3>
-                  <span className="font-medium bg-gray-100 px-2 py-1 rounded text-sm">
+                  <span className="font-medium bg-gray-100 px-2 py-1 rounded text-sm" style={{backgroundColor: "#FABF0D", color: "#AF1D1D"}}>
                     {formatCurrency(product.basePriceCents)}
                   </span>
                 </div>
